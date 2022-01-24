@@ -2,7 +2,7 @@
 
 echo "Entered main script."
 
-expect -c "set timeout -1; spawn /bin/bash /Remotely_Server_Installer -b false -u $USER -p $KEY -c true -s $URL -i /var/www/remotely  -w 0 -r $REFERENCE; sleep 5; expect -re \"enter:\"; send \"\r\n\"; set timeout -1;"
+expect -c "set timeout -1; spawn /bin/bash /Remotely_Server_Installer -b false -u $GITUSER -p $KEY -c true -s $URL -i /var/www/remotely  -w 0 -r $REFERENCE; sleep 5; expect -re \"enter:\"; send \"\r\n\"; set timeout -1;"
 #expect -c  /DockerBuild.exp $USER $KEY $URL $REFERENCE
 
 sed -i 's/DataSource=Remotely.db/DataSource=\/remotely-data\/Remotely.db/' /var/www/remotely/appsettings.json
