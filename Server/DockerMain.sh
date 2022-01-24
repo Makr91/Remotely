@@ -2,7 +2,7 @@
 
 echo "Entered main script."
 
-bash /DockerBuild.exp $USER $KEY $REFERENCE $URL
+bash /DockerBuild.exp $USER $KEY $URL $REFERENCE
 
 sed -i 's/DataSource=Remotely.db/DataSource=\/remotely-data\/Remotely.db/' /var/www/remotely/appsettings.json
 
