@@ -26,7 +26,8 @@ RUN \
   chmod a+x /tmp/setup.exp && \
   mkdir -p /var/www/remotely && \
   mkdir /config && \
-  wget -q https://github.com/immense/Remotely/releases/download/v2021.08.26.1335/Remotely_Server_Installer && \
+  LATEST=$(curl -s https://api.github.com/repos/immense/Remotely/releases/latest | grep -v "*.exe" | awk -F\" '/Remotely_Server_Installer/{print $(NF-1)}' | egrep -v *.exe | egrep https) && \
+  wget -q $LATEST && \
   chmod +x Remotely_Server_Installer && \
   mv Remotely_Server_Installer /var/www/Remotely_Server_Installer && \
   mkdir -p /remotely-data
