@@ -28,9 +28,9 @@ RUN \
   wget https://blog.m4kr.net/uploads/Remotely_Server_Installer -O /var/www/Remotely_Server_Installer && \
   chmod 755 /var/www/Remotely_Server_Installer && \
   chmod a+x /var/www/Remotely_Server_Installer && \
-  mkdir -p /remotely-data
+  mkdir -p /remotely-config
 
-VOLUME "/remotely-data"
+VOLUME "/remotely-config"
 
 WORKDIR /var/www/remotely
 
