@@ -2,7 +2,9 @@
 
 echo "Entered main script."
 
-expect -c "set timeout -1; spawn /bin/bash ./Remotely_Server_Installer -b false -u $GITUSER -p $KEY -c true -s $URL -i /var/www/remotely  -w 0 -r $REFERENCE; sleep 5; expect -re \"enter:\"; send \"\r\n\"; set timeout -1;"
+ls -ltrah ./Remotely_Server_Installer
+Remotely_Server_Installer -b false -u $GITUSER -p $KEY -c true -s $URL -i /var/www/remotely  -w 0 -r $REFERENCE
+#expect -c "set timeout -1; spawn /bin/bash ./Remotely_Server_Installer -b false -u $GITUSER -p $KEY -c true -s $URL -i /var/www/remotely  -w 0 -r $REFERENCE; sleep 5; expect -re \"enter:\"; send \"\r\n\"; set timeout -1;"
 
 sed -i 's/DataSource=Remotely.db/DataSource=\/remotely-data\/Remotely.db/' /var/www/remotely/appsettings.json
 
