@@ -5,7 +5,10 @@ EXPOSE 5000
 ENV ASPNETCORE_ENVIRONMENT="Production"
 ENV ASPNETCORE_URLS="http://*:5000"
 ENV COLUMNS 100
-ENV VAR 1
+ENV KEY="SomeKey"
+ENV USER="Makr91"
+ENV URL="https://support.home.m4kr.net"
+ENV REFERENCE="latest"
 
 
 RUN \
