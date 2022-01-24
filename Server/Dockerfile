@@ -13,6 +13,7 @@ RUN \
   apt-transport-https \
   unzip \
   acl \
+  git \
   libssl1.0
 
 RUN \
