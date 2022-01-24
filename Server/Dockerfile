@@ -4,6 +4,9 @@ EXPOSE 5000
 
 ENV ASPNETCORE_ENVIRONMENT="Production"
 ENV ASPNETCORE_URLS="http://*:5000"
+ENV COLUMNS 100
+ENV VAR 1
+
 
 RUN \
   apt-get -y update && \
