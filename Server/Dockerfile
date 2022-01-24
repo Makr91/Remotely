@@ -19,18 +19,16 @@ RUN \
   apt-get -y update && \
   apt-get -y install aspnetcore-runtime-5.0
 
+COPY ./DockerBuild.exp /tmp/
+
 RUN \
+  chmod a+x /tmp/setup.exp && \
   mkdir -p /var/www/remotely && \
   mkdir /config && \
-  wget -q https://github.com/lucent-sea/Remotely/releases/latest/download/Remotely_Server_Linux-x64.zip && \
-  unzip -o Remotely_Server_Linux-x64.zip -d /var/www/remotely && \
-  rm Remotely_Server_Linux-x64.zip
-  
-
-
-RUN \
-  mkdir -p /remotely-data && \
-  sed -i 's/DataSource=Remotely.db/DataSource=\/remotely-data\/Remotely.db/' /var/www/remotely/appsettings.json
+  wget -q https://github.com/immense/Remotely/releases/download/v2021.08.26.1335/Remotely_Server_Installer && \
+  chmod +x Remotely_Server_Installer && \
+  mv Remotely_Server_Installer /var/www/Remotely_Server_Installer && \
+  mkdir -p /remotely-data
 
 VOLUME "/remotely-data"
 
