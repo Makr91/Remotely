@@ -1,5 +1,5 @@
 #!/usr/bin/expect
 set timeout -1
-spawn /Remotely_Server_Installer -b false -u $env(USER) -p $env(KEY) -c true -s $env(URL) -i /var/www/remotely  -w 0 -r $env(REFERENCE)
+spawn "/Remotely_Server_Installer -b false -u $env(USER) -p $env(KEY) -c true -s $env(URL) -i /var/www/remotely  -w 0 -r $env(REFERENCE)"
 expect "Enter: "
 send -- "\r"
