@@ -1,4 +1,8 @@
 #!/usr/bin/expect
+set USER [lindex $argv 0]
+set KEY [lindex $argv 1]
+set URL [lindex $argv 2]
+set REFERENCE [lindex $argv 2]
 set timeout -1
 spawn "/Remotely_Server_Installer -b false -u $env(USER) -p $env(KEY) -c true -s $env(URL) -i /var/www/remotely  -w 0 -r $env(REFERENCE)"
 expect "Enter: "
