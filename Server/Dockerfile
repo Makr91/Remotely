@@ -9,7 +9,7 @@ ENV COLUMNS 100
 RUN \
   apt-get -y update && \
   DEBIAN_FRONTEND=noninteractive TZ=America/Chicago  apt-get -y install \
-  apt-utils gawk wget acl git libssl1.0 git-core diffstat unzip texinfo gcc-multilib \
+  apt-utils gawk wget curl acl git libssl1.0 git-core diffstat unzip texinfo gcc-multilib \
   build-essential chrpath socat cpio python python3 python3-pip python3-pexpect \
   xz-utils debianutils iputils-ping python3-git python3-jinja2 libegl1-mesa libsdl1.2-dev \
   xterm expect locales apt-transport-https 
