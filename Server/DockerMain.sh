@@ -2,6 +2,10 @@
 
 echo "Entered main script."
 
+/tmp/DockerBuild.exp $USER $KEY $REFERENCE $URL
+
+sed -i 's/DataSource=Remotely.db/DataSource=\/remotely-data\/Remotely.db/' /var/www/remotely/appsettings.json
+
 ServerDir=/var/www/remotely
 RemotelyData=/remotely-data
 
@@ -18,6 +22,7 @@ if [ -f "$AppSettingsWww" ]; then
 fi
 
 ln -s "$AppSettingsVolume" "$AppSettingsWww"
+
 
 echo "Starting Remotely server."
 exec /usr/bin/dotnet /var/www/remotely/Remotely_Server.dll
