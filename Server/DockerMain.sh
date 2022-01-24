@@ -8,11 +8,12 @@ RemotelyData=/remotely-data
 AppSettingsVolume=/remotely-data/appsettings.json
 AppSettingsWww=/var/www/remotely/appsettings.json
 
-wget -q https://github.com/lucent-sea/Remotely/releases/latest/download/Remotely_Server_Linux-x64.zip 
-unzip -o Remotely_Server_Linux-x64.zip -d /var/www/remotely 
-rm Remotely_Server_Linux-x64.zip
-
 if [ "$BUILD" = true ]; then
+  echo "Source Server Files"
+  wget -q https://github.com/lucent-sea/Remotely/releases/latest/download/Remotely_Server_Linux-x64.zip 
+  unzip -o Remotely_Server_Linux-x64.zip -d /var/www/remotely 
+  rm Remotely_Server_Linux-x64.zip
+  
   echo "Building from source"
   cd /var/www && ./Remotely_Server_Installer -b false -u $GITUSER -p $KEY -c true -s $URL -i /var/www/remotely  -w 0 -r $REFERENCE 
 fi
