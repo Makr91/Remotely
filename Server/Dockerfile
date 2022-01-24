@@ -20,7 +20,7 @@ RUN \
   apt-get -y update && \
   apt-get -y install aspnetcore-runtime-5.0
 
-COPY ./DockerBuild.exp /tmp/
+COPY ./DockerBuild.exp /
 
 RUN \
   chmod a+x /tmp/setup.exp && \
