@@ -24,9 +24,9 @@ RUN \
   mkdir -p /var/www/remotely && \
   mkdir /config && \
   LATEST=$(curl -s https://api.github.com/repos/immense/Remotely/releases/latest | grep -v "*.exe" | awk -F\" '/Remotely_Server_Installer/{print $(NF-1)}' | egrep -v *.exe | egrep https) && \
-  wget -q $LATEST -O /var/www/remotely/Remotely_Server_Installer && \
-  chmod 755 /var/www/remotely/Remotely_Server_Installer && \
-  chmod a+x /var/www/remotely/Remotely_Server_Installer && \
+  wget -q $LATEST -O /var/www/Remotely_Server_Installer && \
+  chmod 755 /var/www/Remotely_Server_Installer && \
+  chmod a+x /var/www/Remotely_Server_Installer && \
   mkdir -p /remotely-data
 
 VOLUME "/remotely-data"
