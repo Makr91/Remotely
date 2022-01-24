@@ -2,7 +2,7 @@
 
 echo "Entered main script."
 
-if $BUILD; then
+if [ "$BUILD" = true ]; then
   ./Remotely_Server_Installer -b false -u $GITUSER -p $KEY -c true -s $URL -i /var/www/remotely  -w 0 -r $REFERENCE
 fi
 
