@@ -3,19 +3,18 @@
 echo "Entered main script."
 
 ServerDir=/var/www/remotely
-RemotelyData=/remotely-data
+RemotelyData=/remotely-config
 
-AppSettingsVolume=/remotely-data/appsettings.json
+AppSettingsVolume=/remotely-config/appsettings.json
 AppSettingsWww=/var/www/remotely/appsettings.json
 
-echo "Building from source: $BUILD"
-/var/www/Remotely_Server_Installer -b false -u $GITUSER -p $KEY -c $BUILD -s $URL -i /var/www/remotely  -w 1 -r $REFERENCE 
-
-sed -i 's/DataSource=Remotely.db/DataSource=\/remotely-data\/Remotely.db/' /var/www/remotely/appsettings.json
-
 if [ ! -f "$AppSettingsVolume" ]; then
-	echo "Copying appsettings.json to volume."
-	cp "$AppSettingsWww" "$AppSettingsVolume"
+    echo "Building from source: $BUILD"
+    /var/www/Remotely_Server_Installer -b false -u $GITUSER -p $KEY -c $BUILD -s $URL -i /var/www/remotely  -w 1 -r $REFERENCE 
+    sed -i 's/DataSource=Remotely.db/DataSource=\/remotely-data\/Remotely.db/' /var/www/remotely/appsettings.json
+    
+    echo "Copying appsettings.json to volume."
+    cp "$AppSettingsWww" "$AppSettingsVolume"
 fi
 
 if [ -f "$AppSettingsWww" ]; then
@@ -23,7 +22,6 @@ if [ -f "$AppSettingsWww" ]; then
 fi
 
 ln -s "$AppSettingsVolume" "$AppSettingsWww"
-
 
 echo "Starting Remotely server."
 exec /usr/bin/dotnet /var/www/remotely/Remotely_Server.dll
