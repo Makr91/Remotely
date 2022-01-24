@@ -1,5 +1,0 @@
-#!/usr/bin/expect
-set USER [lindex $argv 0]
-set KEY [lindex $argv 1]
-set URL [lindex $argv 2]
-set REFERENCE [lindex $argv 3]
