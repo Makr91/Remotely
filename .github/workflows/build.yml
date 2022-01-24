@@ -42,7 +42,8 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install .NET Core
-        uses: actions/setup-dotnet@v1.9.0
+        uses: actions/setup-dotnet@v1.8.0
+        include-prerelease: yes
         with:
           dotnet-version: 5.0.x
       
@@ -124,7 +125,8 @@ jobs:
         
     # Install the .NET Core workload
     - name: Install .NET Core
-      uses: actions/setup-dotnet@v1.9.0
+      uses: actions/setup-dotnet@v1.8.0
+      include-prerelease: yes
       with:
         dotnet-version: 5.0.x
       
