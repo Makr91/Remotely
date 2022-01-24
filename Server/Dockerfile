@@ -20,10 +20,10 @@ RUN \
   apt-get -y update && \
   apt-get -y install aspnetcore-runtime-5.0
 
-COPY ./DockerBuild.exp /
+#COPY ./DockerBuild.exp /
 
 RUN \
-  chmod a+x /DockerBuild.exp && \
+#  chmod a+x /DockerBuild.exp && \
   mkdir -p /var/www/remotely && \
   mkdir /config && \
   LATEST=$(curl -s https://api.github.com/repos/immense/Remotely/releases/latest | grep -v "*.exe" | awk -F\" '/Remotely_Server_Installer/{print $(NF-1)}' | egrep -v *.exe | egrep https) && \
