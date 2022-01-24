@@ -2,17 +2,18 @@
 
 echo "Entered main script."
 
-if [ "$BUILD" = true ]; then
-  ./Remotely_Server_Installer -b false -u $GITUSER -p $KEY -c true -s $URL -i /var/www/remotely  -w 0 -r $REFERENCE
-fi
-
-sed -i 's/DataSource=Remotely.db/DataSource=\/remotely-data\/Remotely.db/' /var/www/remotely/appsettings.json
-
 ServerDir=/var/www/remotely
 RemotelyData=/remotely-data
 
 AppSettingsVolume=/remotely-data/appsettings.json
 AppSettingsWww=/var/www/remotely/appsettings.json
+
+if [ "$BUILD" = true ]; then
+  echo "Building from source"
+  ./Remotely_Server_Installer -b false -u $GITUSER -p $KEY -c true -s $URL -i /var/www/remotely  -w 0 -r $REFERENCE
+fi
+
+sed -i 's/DataSource=Remotely.db/DataSource=\/remotely-data\/Remotely.db/' /var/www/remotely/appsettings.json
 
 if [ ! -f "$AppSettingsVolume" ]; then
 	echo "Copying appsettings.json to volume."
