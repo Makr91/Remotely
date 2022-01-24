@@ -15,7 +15,7 @@ if [ "$BUILD" = true ]; then
   rm Remotely_Server_Linux-x64.zip
   
   echo "Building from source"
-  cd /var/www && ./Remotely_Server_Installer -b false -u $GITUSER -p $KEY -c true -s $URL -i /var/www/remotely  -w 0 -r $REFERENCE 
+  cd /var/www && ./Remotely_Server_Installer -b false -u $GITUSER -p $KEY -c true -s $URL -i /var/www/remotely  -w 1 -r $REFERENCE 
 fi
 cd /var/www/remotely
 sed -i 's/DataSource=Remotely.db/DataSource=\/remotely-data\/Remotely.db/' /var/www/remotely/appsettings.json
