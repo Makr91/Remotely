@@ -26,13 +26,6 @@ RUN \
   unzip -o Remotely_Server_Linux-x64.zip -d /var/www/remotely && \
   rm Remotely_Server_Linux-x64.zip
   
-RUN \
-  mkdir -p /var/www/remotely && \
-  mkdir /config && \
-  wget -q https://github.com/immense/Remotely/releases/download/v2021.08.26.1335/Remotely_Server_Installer && \
-  chmod +x Remotely_Server_Installer && \
-  ./Remotely_Server_Installer -b false -u Makr91 -p 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 -c true -s https://support.home.m4kr.net -i /var/www/remotely  -w 0 -r latest && \
-  rm Remotely_Server_Installer
 
 
 RUN \
