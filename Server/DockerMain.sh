@@ -13,7 +13,14 @@ ls -ltrah /var/www/Remotely_Server_Installer
 if [ "$BUILD" = true ]; then
   echo "Building from source"
   cd /var/www && ./Remotely_Server_Installer -b false -u $GITUSER -p $KEY -c true -s $URL -i /var/www/remotely  -w 0 -r $REFERENCE
+  
+  
 fi
+
+LATEST=$(curl -s https://api.github.com/repos/immense/Remotely/releases/latest | grep -v "*.exe" | awk -F\" '/Remotely_Server_Linux-x64/{print $(NF-1)}' | grep *.zip | egrep https) && \
+wget -q $LATEST -O Remotely_Server_Linux-x64.zip
+unzip -o Remotely_Server_Linux-x64.zip -d /var/www/remotely 
+rm Remotely_Server_Linux-x64.zip
 
 sed -i 's/DataSource=Remotely.db/DataSource=\/remotely-data\/Remotely.db/' /var/www/remotely/appsettings.json
 
