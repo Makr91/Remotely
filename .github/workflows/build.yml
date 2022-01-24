@@ -42,11 +42,11 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install .NET Core
-        uses: actions/setup-dotnet@v1.8.0
-        include-prerelease: yes
+        uses: actions/setup-dotnet@v1.9.0
         with:
-          dotnet-version: 5.0.x
-      
+          dotnet-version: |
+            6.0.x
+            5.0.x
         
       - name: Setup NuGet.exe for use with actions
         uses: NuGet/setup-nuget@v1.0.5
@@ -125,10 +125,11 @@ jobs:
         
     # Install the .NET Core workload
     - name: Install .NET Core
-      uses: actions/setup-dotnet@v1.8.0
-      include-prerelease: yes
+      uses: actions/setup-dotnet@v1.9.0
       with:
-        dotnet-version: 5.0.x
+        dotnet-version: |
+            6.0.x
+            5.0.x
       
     # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
     - name: Setup MSBuild.exe
